@@ -85,3 +85,8 @@ button.delete:hover{
 .error-message{
   color: #F30;
 }
+.image-preview{
+  width: 200px;
+  max-height: 200px;
+  max-width:200px;
+}

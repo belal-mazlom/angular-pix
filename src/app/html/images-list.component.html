@@ -42,7 +42,7 @@
     Title: {{selectedImage.title | uppercase}}
   </h2>
   <div *ngIf="selectedImageSource">
-    <img src="{{selectedImageSource}}"/>
+    <img class="image-preview" src="{{selectedImageSource}}"/>
   </div>
   <button (click)="gotoDetail()">View Details</button>
 </div>
