@@ -1,0 +1,48 @@
+<div class="new-form">
+  <h3>New Image</h3>
+  <div *ngIf="messageError">
+    <div class="error-message">{{messageError}}</div>
+  </div>
+  <label>Image title:</label>
+  <input #imageTitle/>
+  <br>
+  <label>Image Date:</label>
+  <input #imageDate/>
+  <div>
+    <label>Image description:</label>
+    <div>
+      <textarea #imageDesc></textarea>
+    </div>
+  </div>
+
+  <input type="file" #imageUpload size="24" (change)="onChangeUploader($event)" alt=""/>
+  <div *ngIf="uploadedImageSource">
+    <img src="{{uploadedImageSource}}"/>
+  </div>
+
+  <button
+    (click)="add(imageTitle.value, imageDesc.value, imageDate.value); imageTitle.value=''; imageDate.value=''; imageDesc.value='';uploadedImageSource=null;imageUpload.value=null">
+    Add
+  </button>
+</div>
+
+<h2>All Images</h2>
+<ul class="images">
+  <li *ngFor="let image of images" (click)="onSelect(image)"
+      [class.selected]="image === selectedImage">
+    <span class="badge">{{image.id}}</span>
+    <span>{{image.title}}</span>
+    <button class="delete"
+            (click)="delete(image); $event.stopPropagation()">x
+    </button>
+  </li>
+</ul>
+<div *ngIf="selectedImage">
+  <h2>
+    Title: {{selectedImage.title | uppercase}}
+  </h2>
+  <div *ngIf="selectedImageSource">
+    <img src="{{selectedImageSource}}"/>
+  </div>
+  <button (click)="gotoDetail()">View Details</button>
+</div>

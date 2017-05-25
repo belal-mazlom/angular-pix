@@ -1,0 +1,23 @@
+<div *ngIf="image">
+  <h2>{{image.title}}</h2>
+  <label>id: </label>{{image.id}}
+  <div>
+    <label>Title: </label>
+    {{image.title}}
+  </div>
+  <div>
+    <label>Date: </label>
+    {{image.date}}
+  </div>
+  <div>
+    <label>Description: </label>
+    {{image.description}}
+  </div>
+  <div>
+    <label>Preview: </label>
+    <div *ngIf="imageSource">
+      <img src="{{imageSource}}">
+    </div>
+  </div>
+  <button (click)="goBack()">Back</button>
+</div>
