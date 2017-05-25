@@ -15,6 +15,6 @@ export class DashboardComponent implements OnInit {
 
   ngOnInit(): void {
     this.imageService.getImages()
-      .then(images => this.images = images.slice(images.length - 4, 4)); // change to get last images
+      .then(images => this.images = images.slice(images.length - 4, images.length)); // change to get last images
   }
 }
